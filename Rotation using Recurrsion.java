@@ -37,4 +37,4 @@ class Rotation {
         System.out.println("After Rotation");
         display(array,n,0);
     }
-}
+} 
