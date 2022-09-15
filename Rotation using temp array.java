@@ -42,4 +42,4 @@ class Rotation {
         System.out.println("After rotation");
         print(arr,n);
     }
-}
+} 
