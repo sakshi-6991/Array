@@ -1,0 +1,62 @@
+/*
+Problem - Convert array to linkedlist
+Approach - 1. declare array
+		   2. Write code to create Linkedlist and create node 
+		   3. create function-loop to pass array elements to create node code and add it to linkedlist
+Time Complexity - O(n)
+Space Complexity - Input Array - O(n)	
+				   LinkedList Nodes - O(1)
+				   Temporary variables - O(1)
+				   Overall space complexity - O(n) [We are creating n number of nodes for elements]	   
+*/
+
+public class ConvertArrayToLinkedList{
+	public void convertToLinkedList(int array[]){
+		int tracker=0;
+		new CreateNode().createNode(array);
+
+	}
+	public static void main(String[] args){
+		int array[] = {7,3,5,2,6,1,9,6,5};
+		ConvertArrayToLinkedList catl = new ConvertArrayToLinkedList();
+		catl.convertToLinkedList(array);
+	}
+}
+
+class Node{
+	int data;
+	Node next;
+	Node(int data){
+		this.data=data;
+		this.next=null;
+	}
+}
+class CreateNode{
+	Node root;
+	Node end;
+	CreateNode(){
+		this.root=null;
+		this.end=null;
+	}
+	public void createNode(int[] array){
+		int tracker=0;
+		while(tracker<array.length){
+			Node currentNode = new Node(array[tracker]);
+			if(root==null){
+				root=end=currentNode;
+			}else{
+				end.next=currentNode;
+				end=currentNode;
+			}
+			tracker++;
+		}
+		printLinkedList(root);
+	}
+	public void printLinkedList(Node root){
+		Node currentNode = root;
+		while(currentNode!=null){
+			System.out.println(currentNode.data);
+			currentNode=currentNode.next;
+		}
+	}
+}
